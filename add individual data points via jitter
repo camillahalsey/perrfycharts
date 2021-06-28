@@ -1,0 +1,18 @@
+var jitterWidth = 50
+svg
+  .selectAll("indPoints")
+  .data(data)
+  .enter()
+  .append("circle")
+    .attr("cx", function(d){return(x(d.Species) - jitterWidth/2 + Math.random()*jitterWidth )})
+    .attr("cy", function(d){return(y(d.Sepal_Length))})
+    .attr("r", 4)
+    .style("fill", "white")
+    .attr("stroke", "black")
+
+
+})
+// this is currently the code for working with multiple categorical data with several boxplots in one graph. Currently I'm having issues translating this into a graph 
+with one boxplot. The file of just x axis and plotted line is boxplot graphed horizontally after getting rid of box so we would want to add
+individual points to that ideally using jitter but since this jitter is made to work with different data input(a github file as opposed to a 1d array) I am unsure 
+of how to add it to a plot with 1d array data input
