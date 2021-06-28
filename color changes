@@ -1,0 +1,5 @@
+let thresholdScale = d3.scaleThreshold()
+  .domain([50, 90, 100])
+  .range(['green', 'yellow', 'red');
+  
+  #this allows for the color change from intervals 0-50: green, 50-90: yellow, 90-100: red, etc
