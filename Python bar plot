@@ -1,0 +1,39 @@
+red = data[1]
+orange = data[2]
+yellow = data[3]
+blue = data[4]
+
+# Heights of bars1 + bars2
+bars = np.add(green, red).tolist()
+ 
+# The position of the bars on the x-axis
+r = [0,1,2,3,4,5,6]
+ 
+# Names of group and bar width
+names = ['SEO','Performance','Security','Privacy','Accessibility', 'Marketing', 'Content']
+barWidth = .75
+ 
+# Create brown bars
+plt.bar(r, green, color='#5ae717', edgecolor='white', width=barWidth)
+# Create green bars (middle), on top of the first ones
+plt.bar(r, red, bottom= green, color='deeppink', edgecolor='white', width=barWidth)
+# Create green bars (top)
+plt.bar(r, orange, bottom=bars, color='orangered', edgecolor='white', width=barWidth)
+bars2 = np.add(bars,orange).tolist()
+plt.bar(r, yellow, bottom=bars2, color = 'gold', edgecolor='white', width=barWidth)
+bars3 = np.add(bars2,yellow).tolist()
+plt.bar(r, blue, bottom=bars3, color = 'cornflowerblue', edgecolor='white', width=barWidth)
+plt.grid(axis='y')
+ 
+# Custom X axis
+plt.xticks(r, names, fontweight='normal')
+plt.xlabel("Modules")
+plt.ylabel("Issues")
+plt.ylim([0,100])
+#ax = plt.subplots()
+#ax.spines['top'].set_visible(False)
+#ax.spines['right'].set_visible(False)
+#ax.spines['left'].set_visible(False)
+plt.title("Issue Distribution by Module", loc='left', fontweight="bold")
+# Show graphic
+plt.show()
