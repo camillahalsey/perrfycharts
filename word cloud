@@ -1,0 +1,17 @@
+from wordcloud import WordCloud
+import matplotlib.pyplot as plt
+import random
+ 
+# Create a list of word
+text=("Python Python Python Matplotlib Matplotlib Seaborn Network Plot Violin Chart Pandas Datascience Wordcloud Spider Radar Parrallel Alpha Color Brewer Density Scatter Barplot Barplot Boxplot Violinplot Treemap Stacked Area Chart Chart Visualization Dataviz Donut Pie Time-Series Wordcloud Wordcloud Sankey Bubble")
+def grey_color_func(word, font_size, position, orientation, random_state=None,
+                    **kwargs):
+    return "hsl(0, 0%%, %d%%)" % random.randint(10, 60) 
+# Create the wordcloud object
+wordcloud = WordCloud(width=480, height=480, prefer_horizontal=1, background_color='white').generate(text)
+ 
+# Display the generated image:
+plt.imshow(wordcloud.recolor(color_func=grey_color_func), interpolation='bilinear')
+plt.axis("off")
+plt.margins(x=0, y=0)
+plt.show()
