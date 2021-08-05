@@ -1,0 +1,25 @@
+import matplotlib.pyplot as plt
+ 
+# create data
+names = ['Secure', 'Unsecure']
+links = [12,11]
+cookies =[98,11]
+assets = [70, 11]
+forms = [1, 11]
+
+titles = ["Links", "Cookies", "Asssets", "Forms"]
+values = [links, cookies, assets, forms]
+
+fig, axes = plt.subplots(1, 4, figsize=(5,5))
+for i in range(0, len(axes)):
+    axes[i].pie(values[i], colors=['#5ae717','deeppink'], wedgeprops=dict(width=.4))
+    axes[i].set(ylabel='', title=titles[i], aspect='equal')
+    p = plt.gcf()
+#p.gca().add_artist(my_circle)
+    insideText = str(int(100*(values[i][0]/(values[i][0]+values[i][1])))) + "%"
+    axes[i].set_title(titles[i], fontsize = 7, fontweight='bold')
+    axes[i].text(0, 0, insideText, ha='center', va='center')
+axes[len(axes)-1].legend(bbox_to_anchor=(0.95,.8), labels=names, loc = "upper left", prop={'size': 5})
+
+# Show the graph
+plt.show()
