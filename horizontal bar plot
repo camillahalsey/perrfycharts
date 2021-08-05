@@ -1,0 +1,21 @@
+
+# libraries
+import matplotlib.pyplot as plt
+import numpy as np
+
+# create dataset
+names =["Screen Reader", "Mobile Friendly", "Meeting Aria Standards"]
+colors = ['#5ae717', 'deeppink', 'gold']
+values = [1,3,4]
+y_pos = 1
+fig, axes = plt.subplots(3, sharex=True, sharey=True)
+for i in range(0, len(names)):
+    axes[i].barh(names[i],values[i], height = .2, color=colors[i])
+    axes[i].set_title(names[i], loc="left", fontweight='bold')
+    axes[i].axis('off')
+    
+#plt.barh(names, values, height = .2)
+#plt.axis('off')
+#plt.title("hi")
+# Show graphic
+plt.show()
